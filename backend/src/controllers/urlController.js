@@ -10,14 +10,14 @@ const getUrl = async (req, res) => {
   if (urlExists) {
     const uniqueId = await ShortURl.findById(urlExists.shortUrl);
     const existingUniqueID = uniqueId?.short;
-    const shortUrl = `https://urlshortner-gpsa.onrender.com/${existingUniqueID}`;
+    const shortUrl = `https://urlthing.onrender.com/${existingUniqueID}`;
     return res
       .status(200)
       .json({ originalUrl: urlExists?.originalUrl, shortUrl });
   }
   // need to create short URL
   const uniqueId = shortid.generate();
-  const shortUrl = `https://urlshortner-gpsa.onrender.com/${uniqueId}`;
+  const shortUrl = `https://urlthing.onrender.com/${uniqueId}`;
 
   // created uniqueID in shortUrl model
   const newShortUrl = new ShortURl({ short: uniqueId });
