@@ -10,7 +10,6 @@ app.use(express.json());
 app.use("/", urlRouter);
 
 const port = process.env.PORT || 5000;
-console.log(process.env.MONGO_URI)
 
 const start = async () => {
   try {
